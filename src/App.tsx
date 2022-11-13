@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import Index, { func } from './statePattern';
+import { Container, Typography } from '@mui/material';
 
 function App() {
+  useEffect(() => {
+    func();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+        p: 12,
+      }}
+    >
+      <Typography variant='h4' sx={{ mb: 4 }}>
+        Design Pattern State
+      </Typography>
+      <Index />
+    </Container>
   );
 }
 
